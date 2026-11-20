@@ -1,0 +1,41 @@
+{
+  "name": "mini-k8s",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "worker": "nodemon scheduler",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.21.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.21.0",
+  "dependencies": {
+    "bullmq": "^6.7.7",
+    "dockerode": "^5.0.1",
+    "dotenv": "^18.0.10",
+    "drizzle-orm": "1.0.0-rc.5",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "1.0.0-rc.5",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15"
+  }
+}

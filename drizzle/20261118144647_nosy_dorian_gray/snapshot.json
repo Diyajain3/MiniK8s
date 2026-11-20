@@ -1,0 +1,157 @@
+{
+  "type": "base",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "ccd599a1-dc8d-4498-b155-daeb3c899eac",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "job_status_enum"
+      ],
+      "writes": [
+        "s|enum|public.job_status_enum",
+        "n|enum|public.job_status_enum",
+        "e|enum|public.job_status_enum",
+        "n|type|public.job_status_enum"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "jobs"
+      ],
+      "writes": [
+        "s|tbl|public.jobs",
+        "n|tbl|public.jobs",
+        "e|tbl|public.jobs",
+        "n|rel|public.jobs",
+        "n|type|public.jobs",
+        "n|rel|public.jobs_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.job_status_enum"
+      ]
+    }
+  ],
+  "ddl": [
+    {
+      "schema": "public",
+      "name": "jobs",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "job_status_enum",
+      "values": [
+        "SUBMITTED",
+        "PENDING",
+        "RUNNING",
+        "STOPPED",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "id",
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "gen_random_uuid()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "image",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "cmd",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "state",
+      "type": "job_status_enum",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'SUBMITTED'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "created_at",
+      "type": "timestamp",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "updated_at",
+      "type": "timestamp",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "jobs",
+      "name": "jobs_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    }
+  ]
+}

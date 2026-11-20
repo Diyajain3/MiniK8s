@@ -1,0 +1,49 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "c27134ca-4cfb-4050-8d35-dee3032a8dac",
+  "prevIds": [
+    "ccd599a1-dc8d-4498-b155-daeb3c899eac"
+  ],
+  "footprints": [
+    {
+      "statementType": "recreate_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "job_status_enum"
+      ],
+      "writes": [
+        "s|enum|public.job_status_enum",
+        "n|enum|public.job_status_enum",
+        "e|enum|public.job_status_enum",
+        "n|type|public.job_status_enum",
+        "s|colprop|public.jobs.state.type",
+        "s|colprop|public.jobs.state.default"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|tbl|public.jobs",
+        "n|sch|public",
+        "n|col|public.jobs.state"
+      ],
+      "sqlHash": "a39d613e05a15f49"
+    }
+  ],
+  "deltas": [
+    {
+      "op": "alter",
+      "key": "enums\u0000[\"public\",\"job_status_enum\"]",
+      "set": {
+        "values": [
+          "SUBMITTED",
+          "RUNNING",
+          "STOPPED",
+          "SUCCEEDED",
+          "FAILED"
+        ]
+      }
+    }
+  ]
+}

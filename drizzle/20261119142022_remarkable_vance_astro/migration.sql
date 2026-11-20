@@ -1,0 +1,1 @@
+ALTER TYPE "job_status_enum" ADD VALUE 'RUNNABLE' BEFORE 'RUNNING';
